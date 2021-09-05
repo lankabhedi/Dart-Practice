@@ -102,6 +102,35 @@ void main(List<String> arguments) {
     return true;
   }).forEach(print);
 
+
+  // Error Handling
+  try{
+    var age;
+    int dogyears = 12;
+
+    if (dogyears != 7){
+      throw new Exception("Dog years should be 7");
+    }
+
+    if(age == null){
+      throw new NullThrownError();
+    }
+
+    print(age * dogyears);
+  }
+  on NoSuchMethodError{
+    print("What even was that!");
+  }
+  on NullThrownError {
+    print("You can't multiply with nothing!");
+  }
+  catch(e){
+    print("There was an error: ${e.toString()}");
+  }
+  finally{
+    print("Completed Execution");
+  }
+
 }
 
 /*
